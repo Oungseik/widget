@@ -1,35 +1,26 @@
-(defwindow example
-           :monitor 0
-           :geometry (geometry :x "0%"
-                               :y "20px"
-                               :width "90%"
-                               :height "30px"
-                               :anchor "top center")
-           :stacking "fg"
-           :reserve (struts :distance "40px" :side "top")
-           :windowtype "dock"
-           :wm-ignore false
-           :exclusive true
-
-(greeter :text "Say hello!"
-           :name "Tim"))
+(defwindow sidebar :class "sidebar"
+        :geometry (geometry :x "6px"
+                            :y "0%"
+                            :width "32px"
+                            :height "90%"
+                            :anchor "left center")
+        :monitor 0
+        :stacking "fg"
+        :exclusive true
+        :focusable false
+      (clock))
 
 
-(defvar time-visible false)   ; for :run-while property of below variable
-                              ; when this turns true, the polling starts and
-                              ; var gets updated with given interval
+;; time widget ;;
+(defwidget clock [] 
+  (box  :orientation "vertical"
+        :halign "center"
+        :class "clock-container"
+        :space-evenly false
+        :spacing 2
+      "${time.hour}"
+      "${time.min}"))
 
-(defpoll time :interval "1s"
-              :initial "initial-value"  ; optional, defaults to poll at startup
-              :run-while time-visible   ; optional, defaults to 'true'
-  `date +%H:%M:%S`)
-
-
-(defwidget greeter [?text name]
-  (box :orientation "horizontal"
-       :halign "center"
-    text
-    time
-    (button :onclick "notify-send 'Hello' 'Hello, ${name}'"
-      "Greet")))
-
+(defpoll time :interval "60s" 
+  :initial `date +'{"hour":"%H","min":"%M"}'`
+  `date +'{"hour":"%H","min":"%M"}'`)

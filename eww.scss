@@ -1,0 +1,25 @@
+$lightgray: #f3f4f6; 
+$gray: #9ca3af;
+$darkgray: #1f2937;
+
+* {
+  all: unset;
+}
+
+
+.sidebar {
+  background-color: $darkgray;
+  color: $lightgray;
+  border-radius: 5px;
+  box-shadow: none;
+  border: none;
+}
+
+.clock-container {
+  font-family: 'JetBrains Mono NF', monospace;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+
+
