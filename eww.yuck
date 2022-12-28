@@ -1,27 +1,66 @@
+;;------------------------------
+;; Variables
+;;------------------------------
+
+(defvar date 
+   `date +'{"day": "%A", "day_short": "%a", "month": "%B", "month_short": "%b", "year": %Y}'`)
+
+(defvar foo "bar")
+
+(defpoll time :interval "60s" 
+  :initial `date +'{"hour": "%I","min": "%M", "ampm": "%p"}'`
+  `date +'{"hour": "%I", "min": "%M", "ampm": "%p"}'`)
+
+
+;;------------------------------
+;; Layouts and Widgets
+;;------------------------------
+
+(defwidget clock [] 
+  (box  :orientation "vertical"
+        :halign "center"
+        :valign "end"
+        :class "clock-container"
+        :space-evenly false
+        :spacing 2
+
+      "${time.hour}"
+      "${time.min}"
+      "${time.ampm}"))
+
+(defwidget date-time []
+  (box  :orientation "vertical"
+        :halign "center"
+        :valign "end"
+        :class "date-time-container"
+        :space-evenly false
+        :spacing 2
+
+        "${date.day_short}"
+        "${date.month_short}"
+        "${date.year}"))
+
+
+;;------------------------------
+;; Windows
+;;------------------------------
+
 (defwindow sidebar :class "sidebar"
-        :geometry (geometry :x "6px"
+        :geometry (geometry :x "4px"
                             :y "0%"
                             :width "32px"
-                            :height "90%"
+                            :height "99%"
                             :anchor "left center")
         :monitor 0
         :stacking "fg"
         :exclusive true
         :focusable false
-      (clock))
+
+        (box 
+        :orientation "vertical"
+        :valign "end"
+
+          (clock)
+          (date-time)))
 
 
-;; time widget ;;
-(defwidget clock [] 
-  (box  :orientation "vertical"
-        :valign: "end"
-        :halign "center"
-        :class "clock-container"
-        :space-evenly false
-        :spacing 2
-      "${time.hour}"
-      "${time.min}"))
-
-(defpoll time :interval "60s" 
-  :initial `date +'{"hour":"%H","min":"%M"}'`
-  `date +'{"hour":"%H","min":"%M"}'`)
