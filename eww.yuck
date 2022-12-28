@@ -14,6 +14,7 @@
 ;; time widget ;;
 (defwidget clock [] 
   (box  :orientation "vertical"
+        :valign: "end"
         :halign "center"
         :class "clock-container"
         :space-evenly false
