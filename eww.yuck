@@ -28,19 +28,6 @@
       "${time.min}"
       "${time.ampm}"))
 
-(defwidget date-time []
-  (box  :orientation "vertical"
-        :halign "center"
-        :valign "end"
-        :class "date-time-container"
-        :space-evenly false
-        :spacing 2
-
-        "${date.day_short}"
-        "${date.month_short}"
-        "${date.year}"))
-
-
 ;;------------------------------
 ;; Windows
 ;;------------------------------
@@ -56,11 +43,6 @@
         :exclusive true
         :focusable false
 
-        (box 
-        :orientation "vertical"
-        :valign "end"
-
-          (clock)
-          (date-time)))
+      (clock))
 
 
