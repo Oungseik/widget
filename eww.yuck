@@ -1,36 +1,7 @@
-;;------------------------------
-;; Variables
-;;------------------------------
-
-(defvar date 
-   `date +'{"day": "%A", "day_short": "%a", "month": "%B", "month_short": "%b", "year": %Y}'`)
-
-(defvar foo "bar")
-
-(defpoll time :interval "60s" 
-  :initial `date +'{"hour": "%I","min": "%M", "ampm": "%p"}'`
-  `date +'{"hour": "%I", "min": "%M", "ampm": "%p"}'`)
-
-
-;;------------------------------
-;; Layouts and Widgets
-;;------------------------------
-
-(defwidget clock [] 
-  (box  :orientation "vertical"
-        :halign "center"
-        :valign "end"
-        :class "clock-container"
-        :space-evenly false
-        :spacing 2
-
-      "${time.hour}"
-      "${time.min}"
-      "${time.ampm}"))
-
-;;------------------------------
+(include "./layout.yuck")
+;------------------------------
 ;; Windows
-;;------------------------------
+;------------------------------
 
 (defwindow sidebar :class "sidebar"
         :geometry (geometry :x "4px"
@@ -44,5 +15,16 @@
         :focusable false
 
       (clock))
+
+
+(defwindow main :class "main"
+        :geometry (geometry :anchor "center center")
+        :monitor 0
+        :stacking "bg"
+        :exclusive true
+        :focusable false
+
+      (profile))
+
 
 

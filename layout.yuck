@@ -1,0 +1,12 @@
+(defwidget profile []
+  (box :class "profile"
+    :halign "start"
+    :valign "start"
+    :width 200
+    :height 200
+
+    (box :class "profile-picture"
+      :style "background-image: url('./images/saitama.jpg')"
+      :class "face")))
+
+ 
