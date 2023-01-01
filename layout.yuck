@@ -38,14 +38,6 @@
       (box :class "battery-percentage"
         "${EWW_BATTERY.BAT1.capacity}%"))))
 
- 
-(defwidget time []
-  (box :class "clock"
-    :orientation "v"
-    {clock ? "${time.hour}" : day} 
-    {clock ? "${time.min}" : month} 
-    {clock ? "${time.ampm}" : year}))
-
 
 (defwidget battery-status []
   (box :class "battery-status" 

@@ -23,7 +23,7 @@ $red-900: 127 29 29;
 
 * {
   all: unset;
-  border-radius: 0.625rem;
+  border-radius: 0.5rem;
 }
 
 .main {
@@ -71,25 +71,23 @@ $red-900: 127 29 29;
   margin: .5rem;
 }
 
-/* Sidebar*/
-.sidebar {
-  background-color: rgb($gray-600);
-}
-
 .date-time-button {
   font-size: 1.2rem;
   font-family: 'JetBrains Mono NF', monospace;
-  color: rgb($red-300);
   font-weight: bold;
-}
-
-.date-time-button:hover {
-  color: blue;
+  margin-bottom: 1rem;
+  background-color: rgb($gray-800);
+  color: rgb($red-400);
+  transition: color .3s ease, background-color .3s ease;
 }
 
 .clock {
-  margin-bottom: 1rem;
-  padding: .5rem 0;
+  padding: .75rem .5rem;
+}
+
+.date-time-button:hover {
+  color: rgb($red-300);
+  background-color: rgb($gray-700);
 }
 
 .battery-status {
