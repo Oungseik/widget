@@ -5,17 +5,19 @@
 ;------------------------------
 
 (defwindow sidebar :class "sidebar"
-        :geometry (geometry :x "4px"
+        :geometry (geometry :x "0%"
                             :y "0%"
-                            :width "32px"
-                            :height "99%"
+                            :width 32
+                            :height "98%"
                             :anchor "left center")
         :monitor 0
-        :stacking "fg"
-        :exclusive true
+        :stacking "bg"
+        :exclusive true 
         :focusable false
 
-      (clock))
+        (box
+        :orientation "v"
+          "hello" "${reserve-sidebar}"))
 
 
 (defwindow main :class "main"

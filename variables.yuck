@@ -1,1 +1,2 @@
 (defvar power false)
+(defvar reserve-sidebar true)
