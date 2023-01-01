@@ -1,2 +1,11 @@
 (defvar power false)
-(defvar reserve-sidebar true)
+(defvar clock true) ;;toggle time and date
+
+(defvar day "")
+(defvar month "")
+(defvar year "")
+
+(defpoll time :interval "60s"
+  :initial `date +'{"hour": "%I","min": "%M", "ampm": "%p"}'`
+  `date +'{"hour": "%I", "min": "%M", "ampm": "%p"}'`)
+

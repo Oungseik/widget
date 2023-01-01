@@ -21,10 +21,6 @@
       (box :class "user-title"
       "( 孤独なヒーロー )")))
   
-(defwidget buttons [] 
-  (box :class "buttons-container"
-      ))
-
 (defwidget system-info []
     (box :class "system-info"
       :valign "start"
@@ -43,3 +39,18 @@
         "${EWW_BATTERY.BAT1.capacity}%"))))
 
  
+(defwidget time []
+  (box :class "clock"
+    :orientation "v"
+    {clock ? "${time.hour}" : day} 
+    {clock ? "${time.min}" : month} 
+    {clock ? "${time.ampm}" : year}))
+
+
+(defwidget battery-status []
+  (box :class "battery-status" 
+    :space-evenly false
+    :orientation "v"
+    :halign "center"
+    :valign "center"
+    "${EWW_BATTERY.BAT1.capacity}%"))

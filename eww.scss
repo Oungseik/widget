@@ -20,18 +20,15 @@ $red-600: 220 38 38;
 $red-700: 185 28 28;
 $red-800: 153 27 27;
 $red-900: 127 29 29;
- 
 
 * {
   all: unset;
   border-radius: 0.625rem;
 }
 
-
 .main {
   font-family: 'JetBrains Mono NF', monospace;
   color: black;
-   
 }
 
 .profile-card {
@@ -79,5 +76,24 @@ $red-900: 127 29 29;
   background-color: rgb($gray-600);
 }
 
+.date-time-button {
+  font-size: 1.2rem;
+  font-family: 'JetBrains Mono NF', monospace;
+  color: rgb($red-300);
+  font-weight: bold;
+}
+
+.date-time-button:hover {
+  color: blue;
+}
+
+.clock {
+  margin-bottom: 1rem;
+  padding: .5rem 0;
+}
+
+.battery-status {
+  font-family: 'JetBrains Mono NF', monospace;
+}
 
 

@@ -1,13 +1,13 @@
-(include "./layout.yuck")
 (include "./variables.yuck")
+(include "./layout.yuck")
 ;------------------------------
 ;; Windows
 ;------------------------------
 
 (defwindow sidebar :class "sidebar"
-        :geometry (geometry :x "0%"
+        :geometry (geometry :x 4
                             :y "0%"
-                            :width 32
+                            :width 36
                             :height "98%"
                             :anchor "left center")
         :monitor 0
@@ -16,9 +16,16 @@
         :focusable false
 
         (box
-        :orientation "v"
-          "hello" "${reserve-sidebar}"))
-
+          :orientation "v"
+          :valign "end"
+          :halign "center"
+          :space-evenly false
+          
+          (battery-status)
+          (eventbox :onclick `node ./scripts/date.js && eww update clock='${!clock}'`
+            :cursor "pointer"
+            :class "date-time-button"
+            (time))))
 
 (defwindow main :class "main"
         :geometry (geometry :anchor "center center")
