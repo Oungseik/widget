@@ -1,4 +1,5 @@
 (include "./layout.yuck")
+(include "./variables.yuck")
 ;------------------------------
 ;; Windows
 ;------------------------------
@@ -24,7 +25,12 @@
         :exclusive true
         :focusable false
 
-      (profile))
+      (box
+        :spacing 8
+        :style "color: white"
+        (profile)
+        (system-info)))
+      
 
 
 

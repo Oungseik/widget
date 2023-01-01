@@ -1,12 +1,45 @@
 (defwidget profile []
-  (box :class "profile"
+  (box :class "profile-card"
     :halign "start"
     :valign "start"
-    :width 200
-    :height 200
+    :height 200 
+    :orientation "v"
+    :space-evenly false
 
-    (box :class "profile-picture"
-      :style "background-image: url('./images/saitama.jpg')"
-      :class "face")))
+    (box :class "profile-picture-box"
+      :width 160
+      :height 160
+      :orientation "v"
+      :vexpand "true"
+      :hexpand "true"
+
+      (box :class "profile-picture"
+        :style "background-image: url('./images/saitama.jpg')"
+        :class "face"))
+      (box :class "username"
+      "oung")
+      (box :class "user-title"
+      "( 孤独なヒーロー )")))
+  
+(defwidget buttons [] 
+  (box :class "buttons-container"
+      ))
+
+(defwidget system-info []
+    (box :class "system-info"
+      :valign "start"
+      :halign "start"
+      :space-evenly false
+
+      (circular-progress :class "battery"
+      :start-at 75.0
+      :clockwise false
+      :height 72
+      :width 72
+      :value "${EWW_BATTERY.BAT1.capacity}"
+      :thickness 8 
+      :style {EWW_BATTERY.BAT1.capacity > 50 ? "color: green" : EWW_BATTERY.BAT1.capacity > 20 ? "color: yellow" : "color: red"}
+      (box :class "battery-percentage"
+        "${EWW_BATTERY.BAT1.capacity}%"))))
 
  
