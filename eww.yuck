@@ -7,11 +7,11 @@
 (defwindow sidebar :class "sidebar"
         :geometry (geometry :x 4
                             :y "0%"
-                            :width 60 
+                            :width 44 
                             :height "98%"
                             :anchor "left center")
         :monitor 0
-        :stacking "bg"
+        :stacking "fg"
         :exclusive true 
         :focusable false
 
@@ -20,29 +20,38 @@
           :valign "end"
           :halign "center"
           :space-evenly false
-          :spacing 10
+          :spacing 12
           
           (battery-status)
+
           (eventbox :onclick `node ./scripts/date.js && eww update clock='${!clock}'`
             :cursor "pointer"
             :class "date-time-button"
 
             (box :class "clock"
-              :width 56 
+              :width 38 
               :orientation "v"
               {clock ? "${time.hour}" : day} 
               {clock ? "${time.min}" : month} 
               {clock ? "${time.ampm}" : year}))
 
-          (eventbox :onclick `notify-send "Hello"`
-            :cursor "pointer" 
-            :class "power-button"
-            (box :class "power-button-box"
-              :valign "center"
-              :halign "center"
-              :space-evenly false
-              ""))))
+            (revealer 
+                :transition "slideup"
+                :duration "0.3s"
+                :reveal reveal-power-buttons
+                (box 
+                  :orientation "v"
+                  :class "buttons-box"
+                  :spacing 6
+                  (eventbox :cursor "pointer" :onclick `hyprctl kill` :class "logout-button" (box :class "logout-icon" ""))
+                  (eventbox :cursor "pointer" :onclick `shutdown -r` :class "reboot-button" (box :class "reboot-icon" ""))
+                  (eventbox :cursor "pointer" :onclick `shutdown now && notify-send "laptop will shutdown in one minute"` :class "power-button" (box :class "power-icon" "襤"))))
 
+          (eventbox :onclick `eww update reveal-power-buttons=${!reveal-power-buttons}`
+            :cursor "pointer" 
+            :class "menu-button"
+            (box :class "menu-button-icon" 
+              ""))))
 
 (defwindow main :class "main"
         :geometry (geometry :anchor "center center")
