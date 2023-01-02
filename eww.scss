@@ -21,6 +21,17 @@ $red-700: 185 28 28;
 $red-800: 153 27 27;
 $red-900: 127 29 29;
 
+$orange-50: 255 247 237;
+$orange-100: 255 237 213;
+$orange-200: 254 215 170;
+$orange-300: 253 186 116;
+$orange-400: 251 146 60;
+$orange-500: 249 115 22;
+$orange-600: 234 88 12;
+$orange-700: 194 65 12;
+$orange-800: 154 52 18;
+$orange-900: 124 45 18;
+
 * {
   all: unset;
   border-radius: 0.5rem;
@@ -71,27 +82,37 @@ $red-900: 127 29 29;
   margin: .5rem;
 }
 
+.sidebar {
+  font-family: 'JetBrains Mono NF', monospace;
+}
+
 .date-time-button {
   font-size: 1.2rem;
-  font-family: 'JetBrains Mono NF', monospace;
   font-weight: bold;
-  margin-bottom: 1rem;
   background-color: rgb($gray-800);
-  color: rgb($red-400);
+  color: rgb($orange-400);
   transition: color .3s ease, background-color .3s ease;
 }
 
 .clock {
-  padding: .75rem .5rem;
+  padding: 1.25rem .5rem;
 }
 
 .date-time-button:hover {
-  color: rgb($red-300);
+  color: rgb($orange-300);
   background-color: rgb($gray-700);
 }
 
-.battery-status {
-  font-family: 'JetBrains Mono NF', monospace;
+.power-button {
+  font-size: 1.5rem;
+  background-color: rgb($gray-800);
+  color: rgb($red-400);
+  // padding: 2rem 0;
+}
+
+.power-button-box {
+  padding: 1rem .3rem 1rem 0;
+
 }
 
 

@@ -21,7 +21,6 @@
           :halign "center"
           :space-evenly false
           :spacing 10
-          :style "padding-bottom: 1rem"
           
           (battery-status)
           (eventbox :onclick `node ./scripts/date.js && eww update clock='${!clock}'`
@@ -33,7 +32,16 @@
               :orientation "v"
               {clock ? "${time.hour}" : day} 
               {clock ? "${time.min}" : month} 
-              {clock ? "${time.ampm}" : year}))))
+              {clock ? "${time.ampm}" : year}))
+
+          (eventbox :onclick `notify-send "Hello"`
+            :cursor "pointer" 
+            :class "power-button"
+            (box :class "power-button-box"
+              :valign "center"
+              :halign "center"
+              :space-evenly false
+              ""))))
 
 
 (defwindow main :class "main"
