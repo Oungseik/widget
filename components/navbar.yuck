@@ -19,9 +19,7 @@
     :spacing 12
     :halign "center"
 
-      (eventbox :onhover `node ./scripts/date.js && eww update clock='${!clock}'`
-        :onhoverlost `eww update clock='${!clock}'`
-        :cursor "pointer"
+      (button :onclick `node ./scripts/date.js && eww update clock='${!clock}'`
         :class "date-time-btn"
         (box :class "clock"
           :width 38 
