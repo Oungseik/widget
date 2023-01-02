@@ -54,6 +54,17 @@ $yellow-700: 161 98 7;
 $yellow-800: 133 77 14;
 $yellow-900: 113 63 18;
 
+$violet-50: 245 243 255;
+$violet-100: 237 233 254;
+$violet-200: 221 214 254;
+$violet-300: 196 181 253;
+$violet-400: 167 139 250;
+$violet-500: 139 92 246;
+$violet-600: 124 58 237;
+$violet-700: 109 40 217;
+$violet-800: 91 33 182;
+$violet-900: 76 29 149;
+ 
 
 * {
   all: unset;
@@ -107,81 +118,111 @@ $yellow-900: 113 63 18;
 
 // ------------------------------
 // Sidebar start from here
-.sidebar {
+.sidebar, .navbar {
   font-family: 'JetBrains Mono NF', monospace;
-  // background-color: rgb($yellow-100);
-}
-
-.date-time-button {
   font-size: 1.2rem;
   font-weight: bold;
-  // background-color: rgb($gray-800);
-  border: 2px solid rgb($orange-600);
-  color: rgb($orange-400);
-  transition: color .3s ease, background-color .3s ease-in-out;
+  margin-right: .5rem;
+ 
+}
+
+.date-time-btn {
+  color: rgb($violet-300);
+  background-color: rgb($gray-700);
+  transition: color .3s ease;
 }
 
 .clock {
-  padding: 1.25rem 0;
+  padding: 0 .75rem;
 }
 
-.date-time-button:hover {
-  color: rgb($orange-300);
+.temp {
+  padding: 0 .75rem;
   background-color: rgb($gray-700);
+
+  &.low {
+    color: rgb($orange-200);
+  }
+  &.mid {
+    color: rgb($orange-300);
+  }
+  &.high {
+    color: rgb($orange-400);
+  }
 }
 
-.menu-button {
+.bat {
+ background-color: rgb($gray-700);
+  padding: 0 .75rem;
+  
+  &.charge {
+    color: rgb($green-300);
+  }
+  &.full {
+    color: rgb($green-300);
+  }
+  &.normal {
+    color: rgb($yellow-200);
+  }
+  &.low {
+    color: rgb($orange-500);
+  }
+  &.crit {
+    color: rgb($red-600);
+  }
+}
+
+.menu-btn{
   font-size: 1.5rem;
-  // background-color: rgb($gray-800);
-  border: 2px solid rgb($red-800);
+  // border: 2px solid rgb($red-800);
   color: rgb($red-400);
 }
 
-.menu-button-icon {
-  padding: .125rem .5rem .25rem 0;
+.menu-btn-icon {
   transition: color .3s ease, background-color .3s ease-in-out;
+  padding: 0 .75rem;
 }
 
-.menu-button:hover {
+.menu-btn:hover {
   color: rgb($red-300);
   background-color: rgb($gray-700);
 }
 
-.power-button, .reboot-button, .logout-button{
-  font-family: 'JetBrains Mono NF', monospace;
-  font-size: 2rem;
-}
+// .power-button, .reboot-button, .logout-button{
+//   font-family: 'JetBrains Mono NF', monospace;
+//   font-size: 2rem;
+// }
 
-.logout-button {
-  background-color: rgb($orange-600);
-}
+// .logout-button {
+//   background-color: rgb($orange-600);
+// }
 
-.reboot-button {
-  background-color: rgb($orange-700);
-}
-.power-button {
-  background-color: rgb($red-700);
-}
+// .reboot-button {
+//   background-color: rgb($orange-700);
+// }
+// .power-button {
+//   background-color: rgb($red-700);
+// }
 
-.logout-button:hover{
-  color: rgb($gray-900);
-  background-color: rgb($orange-200);
-  transition: color .3s ease, background-color .3s ease-in-out;
-} 
-.reboot-button:hover{
-  color: rgb($gray-900);
-  background-color: rgb($orange-300);
-  transition: color .3s ease, background-color .3s ease-in-out;
-} 
-.power-button:hover {
-  color: rgb($gray-900);
-  background-color: rgb($red-300);
-  transition: color .3s ease, background-color .3s ease-in-out;
-}
+// .logout-button:hover{
+//   color: rgb($gray-900);
+//   background-color: rgb($orange-200);
+//   transition: color .3s ease, background-color .3s ease-in-out;
+// } 
+// .reboot-button:hover{
+//   color: rgb($gray-900);
+//   background-color: rgb($orange-300);
+//   transition: color .3s ease, background-color .3s ease-in-out;
+// } 
+// .power-button:hover {
+//   color: rgb($gray-900);
+//   background-color: rgb($red-300);
+//   transition: color .3s ease, background-color .3s ease-in-out;
+// }
 
-.power-icon, .reboot-icon, .logout-icon {
-  padding-right: .175rem;
-}
+// .power-icon, .reboot-icon, .logout-icon {
+//   padding-right: .175rem;
+// }
 
 
 

@@ -1,6 +1,6 @@
 (defvar power false)
-(defvar clock true) ;;toggle time and date
-(defvar reveal-power-buttons false)
+(defvar clock true) 
+(defvar battery-icons `["", "", "", "", ""]`)
 
 (defvar day "")
 (defvar month "")
@@ -9,13 +9,4 @@
 (defpoll time :interval "60s"
   :initial `date +'{"hour": "%I","min": "%M", "ampm": "%p"}'`
   `date +'{"hour": "%I", "min": "%M", "ampm": "%p"}'`)
-
-(deflisten activewindow :initial `{
-    "workspace": {
-        "id": 3,
-        "name": "3"
-    },
-}` 
-  `hyprctl activewindow -j`)
-
 

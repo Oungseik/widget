@@ -31,9 +31,7 @@
             (box :class "clock"
               :width 38 
               :orientation "v"
-              {clock ? "${time.hour}" : day} 
-              {clock ? "${time.min}" : month} 
-              {clock ? "${time.ampm}" : year}))
+              {clock ? `${time.hour} ${time.min} ${time.ampm}` : `${day} ${month} ${year}`}))
 
             (revealer 
                 :transition "slideup"
