@@ -1,13 +1,18 @@
+(defvar clock true)     ;; use to toggle between clock and calendar 
 (defvar power false)
-(defvar clock true) 
+(defvar brightness-bar false)
+
 (defvar battery-icons `["", "", "", "", ""]`)
-(defvar show false)
+(defvar brightness-icons `["", "", "", "" ]`)
 
 (defvar day "")
 (defvar month "")
 (defvar year "")
 
+
 (defpoll time :interval "60s"
   :initial `date +'{"hour": "%I","min": "%M", "ampm": "%p"}'`
   `date +'{"hour": "%I", "min": "%M", "ampm": "%p"}'`)
 
+
+(deflisten brightness-lvl `brightnessctl g`)

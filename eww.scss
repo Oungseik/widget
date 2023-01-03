@@ -1,5 +1,16 @@
 // @use "./variables";
 
+$blue-50: 239 246 255;
+$blue-100: 219 234 254;
+$blue-200: 191 219 254;
+$blue-300: 147 197 253;
+$blue-400: 96 165 250;
+$blue-500: 59 130 246;
+$blue-600: 37 99 235;
+$blue-700: 29 78 216;
+$blue-800: 30 64 175;
+$blue-900: 30 58 138;
+
 $gray-50: 249 250 251;
 $gray-100: 243 244 246;
 $gray-200: 229 231 235;
@@ -79,6 +90,7 @@ $sky-900: 12 74 110;
  
 %default-styles {
   padding: 0 .75rem;
+  font-family: "Roboto condensed";
   background-color: rgb($gray-700);
 }
 
@@ -145,23 +157,21 @@ $sky-900: 12 74 110;
   font-size: 1.2rem;
   color: rgb($red-400);
   margin-left: 0.5rem;
-}
-
-.menu-btn-icon {
   transition: color .3s ease, background-color .3s ease-in-out;
-  padding: 0 .825rem 0 .5rem;
-}
 
-.menu-btn:hover {
+  &:hover {
   color: rgb($red-300);
   background-color: rgb($gray-700);
+  }
+
+  .menu-btn-icon {
+    padding: 0 .825rem 0 .5rem;
+  }
 }
 
 .date-time-btn {
   color: rgb($violet-300);
-  transition: color .3s ease;
   background-color: rgb($gray-700);
-
   // background-image: linear-gradient(to right, #FD745C, #4CA1AF);
   .clock {
     padding: 0 .75rem;
@@ -211,6 +221,17 @@ $sky-900: 12 74 110;
   .bat-icon {
     font-family: 'JetBrains Mono NF', monospace;
   }
+}
+
+.brightness-ctl {
+  @extend %default-styles;
+  padding-right: .5rem;
+  color: rgb($orange-300);
+
+  .brightness-icon {
+    font-family: 'JetBrains Mono NF', monospace;
+  }
+
 }
 
 

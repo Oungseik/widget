@@ -1,7 +1,7 @@
 (defwidget navbar-left []
   (box
     :space-evenly false
-    :spacing 12
+    :spacing 8
 
   (button :onclick `pkill yofi || yofi apps`
     :timeout "3600s"
@@ -11,13 +11,13 @@
 
   (box :class `temp ${EWW_TEMPS.ACPITZ_TEMP1 < 30 ? 'low' : EWW_TEMPS.ACPITZ_TEMP1 < 60 ? 'mid' : 'high'}` 
     `${EWW_TEMPS.ACPITZ_TEMP1}°C`)
-
 ))
+
 
 (defwidget navbar-mid []
   (box
     :space-evenly false
-    :spacing 12
+    :spacing 8
     :halign "center"
 
       (button :onclick `node ./scripts/date.js && eww update clock='${!clock}'`
@@ -25,6 +25,7 @@
         (box :class "clock"
           :width 38 
           {clock ? ` ${time.hour}:${time.min} ${time.ampm}` : ` ${day}/${month}/${year}`}))))
+
 
 (defwidget navbar-right []
   (box :class `nav-right`
@@ -39,9 +40,22 @@
       `${EWW_BATTERY.BAT1.capacity}% `
       (box :class "bat-icon"
       `${battery-icons[round(EWW_BATTERY.BAT1.capacity / 25, 0)]} `)
-      `${EWW_BATTERY.BAT1.status == 'Charging' ? ' ' : ""}`
-      )))
+      `${EWW_BATTERY.BAT1.status == 'Charging' ? ' ' : ""}`)
 
+    (revealer :class "brightness-ctl" 
+      :transition "slideleft"
+      :reveal brightness-bar 
+      (box 
+      :spacing 4
+      (button :onclick `brightnessctl set 5%-` :class "dec" "-")
+      (button :onclick `brightnessctl set 5%+` :class "inc" "+")))
+
+    (button :onclick `eww update brightness-bar='${!brightness-bar}'`
+      (box :class `brightness-ctl` 
+        `${round(brightness-lvl / 225 * 100, 0)}%`
+        (box :class `brightness-icon`
+        `${brightness-icons[round(brightness-lvl / 64, 0) - 1]}`)))
+      ))
 
 (defwidget network []
   (box EWW_NET))
