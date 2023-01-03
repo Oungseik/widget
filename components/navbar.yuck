@@ -20,7 +20,7 @@
         :class "date-time-btn"
         (box :class "clock"
           :width 38 
-          {clock ? `${time.hour}:${time.min} ${time.ampm}` : `${day}/${month}/${year}`}))))
+          {clock ? ` ${time.hour}:${time.min} ${time.ampm}` : ` ${day}/${month}/${year}`}))))
 
 (defwidget navbar-right []
   (box :class `nav-right`

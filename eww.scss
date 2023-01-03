@@ -143,9 +143,10 @@ $violet-900: 76 29 149;
 }
 
 .date-time-btn {
-  color: rgb($violet-100);
+  color: rgb($violet-300);
   transition: color .3s ease;
-  background-image: linear-gradient(to right, #FD745C, #4CA1AF);
+  background-color: rgb($gray-700);
+  // background-image: linear-gradient(to right, #FD745C, #4CA1AF);
 }
 
 .clock {
