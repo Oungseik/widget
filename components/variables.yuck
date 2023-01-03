@@ -1,6 +1,6 @@
 (defvar power false)
 (defvar clock true) 
-(defvar battery-icons `["", "", "", "", "", ""]`)
+(defvar battery-icons `["", "", "", "", ""]`)
 (defvar show false)
 
 (defvar day "")

@@ -28,7 +28,7 @@
     :halign "end"
     :spacing 8 
 
-    (box :class `net-speed` `${round(EWW_NET.wlan0.NET_DOWN / 1048576, 2)}/${round(EWW_NET.wlan0.NET_UP / 1048576, 2)} MiB/s` )
+    (box :class `net-speed` `${round(EWW_NET.wlan0.NET_DOWN / 1048576, 2)}/${round(EWW_NET.wlan0.NET_UP / 1048576, 2)} MB/s` )
 
     (box :class `temp ${EWW_TEMPS.ACPITZ_TEMP1 < 30 ? 'low' : EWW_TEMPS.ACPITZ_TEMP1 < 60 ? 'mid' : 'high'}` 
       `${EWW_TEMPS.ACPITZ_TEMP1}°C`)
@@ -37,7 +37,7 @@
       :space-evenly false
       `${EWW_BATTERY.BAT1.capacity}% `
       (box :class "bat-icon"
-      `${battery-icons[round(EWW_BATTERY.BAT1.capacity / 20, 0)]} `)
+      `${battery-icons[round(EWW_BATTERY.BAT1.capacity / 25, 0)]} `)
       `${EWW_BATTERY.BAT1.status == 'Charging' ? ' ' : ""}`
       )))
 
