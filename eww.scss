@@ -65,7 +65,22 @@ $violet-600: 124 58 237;
 $violet-700: 109 40 217;
 $violet-800: 91 33 182;
 $violet-900: 76 29 149;
+
+$sky-50: 240 249 255;
+$sky-100: 224 242 254;
+$sky-200: 186 230 253;
+$sky-300: 125 211 252;
+$sky-400: 56 189 248;
+$sky-500: 14 165 233;
+$sky-600: 2 132 199;
+$sky-700: 3 105 161;
+$sky-800: 7 89 133;
+$sky-900: 12 74 110;
  
+%default-styles {
+  padding: 0 .75rem;
+  background-color: rgb($gray-700);
+}
 
 * {
   all: unset;
@@ -146,16 +161,22 @@ $violet-900: 76 29 149;
   color: rgb($violet-300);
   transition: color .3s ease;
   background-color: rgb($gray-700);
+
   // background-image: linear-gradient(to right, #FD745C, #4CA1AF);
+  .clock {
+    padding: 0 .75rem;
+  }
 }
 
-.clock {
-  padding: 0 .75rem;
+.net-speed {
+  font-family: "Roboto condensed", notosans;
+  color: rgb($sky-300);
+  @extend %default-styles;
 }
 
 .temp {
-  padding: 0 .75rem;
-  background-color: rgb($gray-700);
+  font-family: "Roboto condensed", notosans;
+  @extend %default-styles;
 
   &.low {
     color: rgb($orange-200);
@@ -169,8 +190,8 @@ $violet-900: 76 29 149;
 }
 
 .bat {
- background-color: rgb($gray-700);
-  padding: 0 .75rem;
+  @extend %default-styles;
+  font-family: "Roboto condensed", notosans;
   
   &.charge {
     color: rgb($green-300);
@@ -186,6 +207,9 @@ $violet-900: 76 29 149;
   }
   &.crit {
     color: rgb($red-600);
+  }
+  .bat-icon {
+    font-family: 'JetBrains Mono NF', monospace;
   }
 }
 
