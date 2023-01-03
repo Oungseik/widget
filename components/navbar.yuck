@@ -8,6 +8,10 @@
     :class "menu-btn"
     (box :class "menu-btn-icon" 
       ""))
+
+  (box :class `temp ${EWW_TEMPS.ACPITZ_TEMP1 < 30 ? 'low' : EWW_TEMPS.ACPITZ_TEMP1 < 60 ? 'mid' : 'high'}` 
+    `${EWW_TEMPS.ACPITZ_TEMP1}°C`)
+
 ))
 
 (defwidget navbar-mid []
@@ -29,9 +33,6 @@
     :spacing 8 
 
     (box :class `net-speed` `${round(EWW_NET.wlan0.NET_DOWN / 1048576, 1)}/${round(EWW_NET.wlan0.NET_UP / 1048576, 1)} MB/s` )
-
-    (box :class `temp ${EWW_TEMPS.ACPITZ_TEMP1 < 30 ? 'low' : EWW_TEMPS.ACPITZ_TEMP1 < 60 ? 'mid' : 'high'}` 
-      `${EWW_TEMPS.ACPITZ_TEMP1}°C`)
 
     (box :class `bat ${EWW_BATTERY.BAT1.status == 'Charging' ? 'charge' : EWW_BATTERY.BAT1.capacity < 10 ? 'crit' : EWW_BATTERY.BAT1.capacity < 20 ? 'low' : EWW_BATTERY.BAT1.capacity > 90 ? 'full' : 'normal'} `
       :space-evenly false

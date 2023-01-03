@@ -17,4 +17,16 @@
     (navbar-mid)
     (navbar-right)))
 
+(defwindow sound-ctl
+  :geometry (geometry :x 10 
+                      :y 10
+                      :width 300
+                      :anchor "top right")
+  :monitor 0
+  :stacking "fg"
+  :exclusive false
+  :focusable false
 
+  (box :class "sound-control"
+    :style "background: yellow;" 
+    "Hello"))
