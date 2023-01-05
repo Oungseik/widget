@@ -24,7 +24,7 @@
         :class "date-time-btn"
         (box :class "clock"
           :width 38 
-          {clock ? ` ${time.hour}:${time.min} ${time.ampm}` : ` ${day}/${month}/${year}`}))))
+          {clock ? ` ${time}` : ` ${day}/${month}/${year}`}))))
 
 
 (defwidget navbar-right []
@@ -35,27 +35,25 @@
 
     (box :class `net-speed` `${round(EWW_NET.wlan0.NET_DOWN / 1048576, 1)}/${round(EWW_NET.wlan0.NET_UP / 1048576, 1)} MB/s` )
 
-    (box :class `bat ${EWW_BATTERY.BAT1.status == 'Charging' ? 'charge' : EWW_BATTERY.BAT1.capacity < 10 ? 'crit' : EWW_BATTERY.BAT1.capacity < 20 ? 'low' : EWW_BATTERY.BAT1.capacity > 90 ? 'full' : 'normal'} `
+    (box :class `bat ${EWW_BATTERY.BAT1.status == 'Charging' ? 'charge' : EWW_BATTERY.BAT1.capacity < 10 ? 'crit' : EWW_BATTERY.BAT1.capacity < 20 ? 'low' : EWW_BATTERY.BAT1.capacity > 80 ? 'full' : 'normal'} `
       :space-evenly false
       `${EWW_BATTERY.BAT1.capacity}% `
       (box :class "bat-icon"
       `${battery-icons[round(EWW_BATTERY.BAT1.capacity / 25, 0)]} `)
       `${EWW_BATTERY.BAT1.status == 'Charging' ? ' ' : ""}`)
 
-    (revealer :class "brightness-ctl" 
-      :transition "slideleft"
-      :reveal brightness-bar 
-      (box 
-      :spacing 4
-      (button :onclick `brightnessctl set 5%-` :class "dec" "-")
-      (button :onclick `brightnessctl set 5%+` :class "inc" "+")))
-
     (button :onclick `eww update brightness-bar='${!brightness-bar}'`
       (box :class `brightness-ctl` 
-        `${round(brightness-lvl / 225 * 100, 0)}%`
+        `${brightness[0]}`
         (box :class `brightness-icon`
-        `${brightness-icons[round(brightness-lvl / 85, 0)]}`)))
+        `${brightness-icons[brightness[1]]}`)
+        ))
+
+    ;; (button :onclick "node /home/oung/.config/eww/scripts/brightness.js dec" "dec")
+    ;; (button :onclick "node /home/oung/.config/eww/scripts/brightness.js inc" "inc")
+    
       ))
+
 
 (defwidget network []
   (box EWW_NET))

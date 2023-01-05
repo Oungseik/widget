@@ -12,7 +12,7 @@
 
 (defpoll time :interval "60s"
   :initial `date +'{"hour": "%I","min": "%M", "ampm": "%p"}'`
-  `date +'{"hour": "%I", "min": "%M", "ampm": "%p"}'`)
+  `date +"%I:%M %p"`)
 
-
-(deflisten brightness-lvl `brightnessctl g`)
+(deflisten brightness :initial `["15%", 0]` 
+  `tail -f /tmp/brightness`)
