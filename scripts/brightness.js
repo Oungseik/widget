@@ -2,6 +2,7 @@ const { exec } = require("node:child_process");
 const fs = require("node:fs/promises");
 const argv = process.argv;
 
+
 if (!argv.at(2)) {
   exec("brightnessctl g", (_error, stdout, _stderror) => {
     const level = stdout;

@@ -1,6 +1,7 @@
 (include "./components/variables.yuck")
 (include "./components/navbar.yuck")
 
+
 (defwindow navbar 
   :geometry (geometry :x 0
                       :y 0 
